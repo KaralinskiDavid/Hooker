@@ -2,7 +2,7 @@
 #include "pch.h"
 #include <string>
 #include <sstream>
-#include "../src/detours.h"
+#include "Detours/src/detours.h"
 
 HANDLE hStdOut;
 
