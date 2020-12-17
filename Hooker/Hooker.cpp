@@ -6,8 +6,8 @@ PROCESS_INFORMATION processInfo;
 
 int main()
 {
-    std::wstring invokableProcessPath = L"";
-    std::wstring injectionLibPath = L"";
+    std::wstring invokableProcessPath = L"..\\InjectionLibrary\\Debug\\InvokableApplication.exe";
+    std::wstring injectionLibPath = L"..\\InjectionLibrary\\Debug\\InjectionLibrary.dll";
     CreateProcess(invokableProcessPath.c_str(), NULL, NULL, NULL, FALSE, CREATE_SUSPENDED, NULL, NULL, &processStartupInfo, &processInfo);
     void* loadLibraryW = GetProcAddress(GetModuleHandle(L"Kernel32"), "LoadLibraryW");
     LPVOID lpvMemory = VirtualAllocEx(processInfo.hProcess, NULL, injectionLibPath.size() * sizeof(wchar_t) + 1, MEM_COMMIT, PAGE_READWRITE);
